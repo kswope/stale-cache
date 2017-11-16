@@ -1,11 +1,3 @@
 
 
-demand execute
-remove default with no configs
-
-change
-export { staleCache, staleCacheConfig } from './main'
-to 
-export { staleCacheConfig } from './main'
-or
-export default from './main'
+demand execute parameter
