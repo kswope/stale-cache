@@ -10,18 +10,20 @@
     "build": "babel -d dist src",
     "prepare": "npm run build"
   },
-  "files": [ "dist/**/*" ],
+  "files": [
+    "dist/**/*"
+  ],
   "dependencies": {
     "lscache": "^1.1.0",
-    "object-hash": "^1.1.8"
+    "object-hash": "^1.2.0"
   },
   "devDependencies": {
+    "axios": "^0.17.1",
     "babel-cli": "^6.26.0",
-    "axios": "^0.16.2",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.6.1",
     "babel-regenerator-runtime": "^6.5.0",
     "chai": "^4.1.2",
     "karma": "^1.7.1",
@@ -32,11 +34,11 @@
     "karma-requirejs": "^1.1.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.31",
-    "karma-webpack": "^2.0.4",
-    "mocha": "^3.5.3",
+    "karma-webpack": "^2.0.6",
+    "mocha": "^4.0.1",
     "requirejs": "^2.3.5",
-    "sinon": "^3.2.0",
+    "sinon": "^4.1.2",
     "uuid": "^3.1.0",
-    "webpack": "^3.6.0"
+    "webpack": "^3.8.1"
   }
 }

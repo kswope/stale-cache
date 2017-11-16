@@ -25,8 +25,8 @@ module.exports = function(config) {
 
     // other possible values: 'dots', 'progress'
     // reporters: ['min'],
-    reporters: ['dots'],
-    // reporters: ['progress'],
+    // reporters: ['dots'],
+    reporters: ['progress'],
 
     port: 9876,
 
