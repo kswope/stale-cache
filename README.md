@@ -16,7 +16,7 @@ displayData( response )
 use this
 ```
 response = await staleCache( { url: '/user', params: {ID: 12345} } )
-if ( response.data ) displayData( response )
+displayData( response )
 
 response = await response.fresh()
 displayData( response )
@@ -146,7 +146,7 @@ Along with the required execute() passed to staleCacheConfig everything in src/d
 * storageGet: how local data is retrieved from storage.  Default uses lscache.  Could be memory instead.
 * storageSet:  how local data is stored.  Defaults to lscache.  Could be memory instead.
 * cacheIn: What in the response gets stored.
-* cacheOut: how to store data in object returned from storage.
+* cacheOut: how to present data in object returned from storage.
 * insertResponseVersion: where to put the token for caching.
 * extractResponseVersion:  extract caching token from response.
 
