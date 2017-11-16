@@ -1,0 +1,19 @@
+
+{
+  presets: [
+    // [ 'env', { targets: { chrome: '61' } } ]
+    // [ 'env' ]
+
+    [ "env", {
+      "targets": {
+        "browsers": [ "last 2 Chrome versions" ]
+      }
+    } ]
+
+  ],
+  "plugins": [
+    // "transform-es2015-destructuring",
+    // "transform-es2015-parameters",
+    "transform-object-rest-spread"
+  ]
+}
