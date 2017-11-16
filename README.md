@@ -5,6 +5,11 @@
 Wrapper for promise based ajax libraries like fetch, axios, and vue-resource
 that automatically caches to localstorage.
 
+### Purpose
+```bash
+npm install stale-cache
+```
+
 ### Scenario
 
 Instead of this
