@@ -107,42 +107,6 @@ results from the fresh() call.  This means your server only has to return "OK",
 saving a lot of bandwidth, and hopefully other resources too since it was smart
 enough not to run the same database query.
 
-### Invalidating caches, welcome to your nightmare.
-
-So your server gets a request, along with a token that means "last time I made
-this request, you gave me data, along with this token. If you tell me this
-token is "OK", I'll asume the data I have stored locally is the same that you
-would give me now, so I'll just use what I already have."
-
-So how do you know if, at the server side, this token is still valid? That's your
-problem, but I 'll give you a lucky scenario.  Lets say you have a online forum
-that is heavily read but seldom posted to.  When the client downloads a page,
-you return the results along with a token you generated, probably a UUID, but
-it could be anything, and you could reuse the same one for all users, its up to
-you, and you stick it into your database (or memcached, etc).  When the user
-requests this page again, you check if the token is still there, and you return
-"OK" in the token field and nothing else.  You just saved yourself a trillion
-gigabytes of bandwidth.
-
-Remember when we said this forum was heavily read but seldom posted to? Well
-somebody eventually posts something.  Since this is a super simple
-scenario and you are super lazy you just simply delete all tokens, or the only token,
-forcing all fresh() calls to use fresh data instead of the local caches.
-
-Notice that there's in implicit mapping between every token and **all** the
-data relating to posts?  Instead you might want to relate the tokens to each
-different category in your forum.  Now instead of just sticking a token into a
-table, you put it in a table which has a foreign key to a "category".  Now when
-somebody posts to that category, you delete just those tokens related to that
-category.
-
-Your tokens can get more and more fine grained in their data associations but
-the more you push it, the more complicated everything gets, until you will
-screw it up and not even realize it.  Invalidating caches correctly is very
-difficult, but adding this feature was easy, so I couldn't resist, but don't
-hate me when your users keep hitting reload and nothing has changed even though
-it obviously should have.
-
 ### Overriding defaults
 
 Along with the required execute() passed to staleCacheConfig everything in src/defaults.js can be overridden.
